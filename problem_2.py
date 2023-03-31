@@ -17,7 +17,6 @@ def make_dictionary(obj):
 
 def solution(max_pas, string):
     good_data = []
-    i = 0
     data = make_dictionary(string)
     data.pop('.', None)
     for i in data.values():
