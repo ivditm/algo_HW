@@ -1,28 +1,29 @@
-# id = 84915543
-# задача № 2 - пока так, но тесты прошли
+# id = 85076430
 
-def read_input():
-    return int(input())*2, input() + input() + input() + input()
+STRING = ''
 
 
-def make_dictionary(obj):
-    dict_ = {}
-    for part in obj:
-        if dict_.get(part) is None:
-            dict_[part] = 1
+def create_counter(string: str) -> dict[str, int]:
+    counter = {}
+    for symbol in string:
+        if symbol in counter:
+            counter[symbol] += 1
         else:
-            dict_[part] += 1
-    return dict_
+            counter[symbol] = 1
+    return counter
 
 
-def solution(max_pas, string):
-    good_data = []
-    data = make_dictionary(string)
-    data.pop('.', None)
+def calculate_points(max_pas: int, string: str) -> int:
+    number_of_points = 0
+    data = create_counter(string.replace('.', ''))
     for i in data.values():
         if i <= max_pas:
-            good_data.append(i)
-    return len(good_data)
+            number_of_points += 1
+    return number_of_points
 
 
-print(solution(*read_input()))
+if __name__ == '__main__':
+    max_pass = int(input())*2
+    for _ in [input() for _ in range(4)]:
+        STRING += _
+    print(calculate_points(max_pass, STRING))

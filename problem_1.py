@@ -1,11 +1,7 @@
-# id = 84906342
-# слегка оптимизировал - надо еще подумать
-
-def read_input():
-    return int(input()), list(map(int, input().strip().split()))
+# id = 85070309
 
 
-def find_zero_near(lenght, data):
+def find_zero_near(lenght: int, data: list) -> list:
     left_distance = 10**9
     left_answer = []
     right_distance = 10**9
@@ -25,4 +21,6 @@ def find_zero_near(lenght, data):
     return [min(i) for i in zip(left_answer, right_answer[::-1])]
 
 
-print(" ".join(map(str, find_zero_near(*read_input()))))
+if __name__ == '__main__':
+    print(*find_zero_near(int(input()),
+                          [int(i) for i in input().strip().split()]), sep=' ')
