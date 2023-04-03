@@ -1,7 +1,5 @@
 # id = 85076430
 
-STRING = ''
-
 
 def create_counter(string: str) -> dict[str, int]:
     counter = {}
@@ -24,6 +22,5 @@ def calculate_points(max_pas: int, string: str) -> int:
 
 if __name__ == '__main__':
     max_pass = int(input())*2
-    for _ in [input() for _ in range(4)]:
-        STRING += _
-    print(calculate_points(max_pass, STRING))
+    matrix = ''.join(input() for _ in range(4))
+    print(calculate_points(max_pass, matrix))
